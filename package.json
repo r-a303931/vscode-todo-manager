@@ -1,0 +1,64 @@
+{
+    "name": "todo-manager",
+    "displayName": "todo-manager",
+    "description": "Manages TODO items",
+    "version": "1.0.0",
+    "publisher": "arioux",
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/extension",
+    "activationEvents": [
+        "*"
+    ],
+    "contributes": {
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "todo-manager",
+                    "title": "TODO Manager",
+                    "icon": "resources/todo-manager.svg"
+                }
+            ]
+        },
+        "views": {
+            "todo-manager": [
+                {
+                    "id": "todo-manager",
+                    "name": "TODO List"
+                }
+            ]
+        },
+        "commands": [
+            {
+                "command": "other.openFileLine",
+                "title": "Open file at line..."
+            },
+            {
+                "command": "todo-manager.refreshEntry",
+                "title": "TODO Manager: Refresh"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/globby": "^6.1.0",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "globby": "^8.0.1"
+    }
+}
